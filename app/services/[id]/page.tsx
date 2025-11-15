@@ -88,20 +88,12 @@ export default function ServiceDetailPage() {
                     <option value="17:00">5:00 PM</option>
                   </select>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (selectedDate && selectedTime) {
-                      // In a real app, this would navigate to tasker selection
-                      alert('Tasker selection coming soon!');
-                    } else {
-                      alert('Please select both date and time');
-                    }
-                  }}
-                  className="w-full bg-[#00A86B] text-white py-3 rounded-lg font-semibold hover:bg-[#008a5a] transition-colors duration-200"
+                <Link
+                  href={`/book/${service.id}`}
+                  className="w-full bg-[#00A86B] text-white py-3 rounded-lg font-semibold hover:bg-[#008a5a] transition-colors duration-200 block text-center"
                 >
-                  Find a Tasker
-                </button>
+                  Book This Service
+                </Link>
               </form>
             </div>
           </div>
