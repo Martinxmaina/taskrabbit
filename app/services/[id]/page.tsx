@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { allServices } from '../../data/services';
@@ -89,7 +90,7 @@ export default function ServiceDetailPage() {
                   </select>
                 </div>
                 <Link
-                  href={`/book/${service.id}`}
+                  href={`/book/${service.category}/details`}
                   className="w-full bg-[#00A86B] text-white py-3 rounded-lg font-semibold hover:bg-[#008a5a] transition-colors duration-200 block text-center"
                 >
                   Book This Service
