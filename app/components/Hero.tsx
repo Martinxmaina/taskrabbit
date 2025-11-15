@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
 import { serviceCategories } from '../data/services';
 
 export default function Hero() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 py-16">
@@ -21,10 +20,10 @@ export default function Hero() {
         {/* Service Categories Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-12">
           {serviceCategories.map((category) => (
-            <button
+            <Link
               key={category.id}
-              onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
-              className={`p-4 rounded-lg border-2 transition-all duration-300 transform hover:scale-105 ${
+              href={`/book/${category.id}/details`}
+              className={`p-4 rounded-lg border-2 transition-all duration-300 transform hover:scale-105 text-center ${
                 selectedCategory === category.id
                   ? 'border-[#00A86B] bg-[#00A86B]/5 scale-105'
                   : 'border-gray-200 hover:border-[#00A86B] bg-white'
@@ -32,7 +31,7 @@ export default function Hero() {
             >
               <div className="text-3xl mb-2 transform transition-transform duration-200 hover:scale-110">{category.icon}</div>
               <p className="text-sm font-medium text-gray-900">{category.name}</p>
-            </button>
+            </Link>
           ))}
         </div>
 
